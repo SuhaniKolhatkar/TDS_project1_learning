@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TDS Project 1 Learnings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #fef6f8;
+            padding: 40px 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #5a5a5a;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: #7a7a7a;
+        }
+
+        .intro {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border-left: 4px solid #b8a4d4;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .learning-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid #a8d4e8;
+        }
+
+        .learning-item h3 {
+            color: #5a5a5a;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .detail {
+            margin-bottom: 12px;
+            padding-left: 15px;
+        }
+
+        .label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+        }
+
+        .mistake .label {
+            color: #e8a4a4;
+        }
+
+        .fix .label {
+            color: #a4d4b4;
+        }
+
+        .learning .label {
+            color: #a4c4e8;
+        }
+
+        .text {
+            color: #666;
+            margin-left: 5px;
+        }
+
+        .highlight-box {
+            background: #fef9e6;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #f4d4a4;
+        }
+
+        .highlight-box h3 {
+            color: #7a7a5a;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            color: #7a7a7a;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            body {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TDS Project 1 Learnings</h1>
+            <p class="subtitle">Building a GitHub Pages Automation Project</p>
+        </header>
+
+        <div class="intro">
+            <p>Recently, I worked on automating GitHub Pages deployment and faced several challenges along the way. Here are the key lessons I learned that might help others on a similar journey.</p>
+        </div>
+
+        <div class="learning-item">
+            <h3>1. Tool Choice & Environment Setup</h3>
+            <div class="detail mistake">
+                <div class="label">What went wrong:</div>
+                <div class="text">Initially tried using Replit, but the new interface had changed, making setup confusing.</div>
+            </div>
+            <div class="detail fix">
+                <div class="label">Solution:</div>
+                <div class="text">Switched to VS Code with a local environment for better control and debugging.</div>
+            </div>
+            <div class="detail learning">
+                <div class="label">Key Takeaway:</div>
+                <div class="text">Always adapt tools based on practicality. Running projects locally gives full access to logs, environment variables, and dependency control.</div>
+            </div>
+        </div>
+
+        <div class="learning-item">
+            <h3>2. API Hosting</h3>
+            <div class="detail mistake">
+                <div class="label">What went wrong:</div>
+                <div class="text">Tried to test with localhost URLs, which aren't publicly accessible.</div>
+            </div>
+            <div class="detail fix">
+                <div class="label">Solution:</div>
+                <div class="text">Used ngrok to expose the local Flask server to a public HTTPS URL.</div>
+            </div>
+            <div class="detail learning">
+                <div class="label">Key Takeaway:</div>
+                <div class="text">Ngrok is essential for making local APIs publicly accessible. It bridges local development with external integrations.</div>
+            </div>
+        </div>
+
+        <div class="learning-item">
+            <h3>3. API Endpoint Testing</h3>
+            <div class="detail mistake">
+                <div class="label">What went wrong:</div>
+                <div class="text">Opened the API endpoint in browser and got "Method Not Allowed" error.</div>
+            </div>
+            <div class="detail fix">
+                <div class="label">Solution:</div>
+                <div class="text">Realized the endpoint only accepts POST requests, not GET.</div>
+            </div>
+            <div class="detail learning">
+                <div class="label">Key Takeaway:</div>
+                <div class="text">Always check the allowed HTTP methods for API endpoints. Browsers send GET requests by default.</div>
+            </div>
+        </div>
+
+        <div class="learning-item">
+            <h3>4. OpenAI API Key Issue</h3>
+            <div class="detail mistake">
+                <div class="label">What went wrong:</div>
+                <div class="text">Tried to use OpenAI API key, which required paid credits.</div>
+            </div>
+            <div class="detail fix">
+                <div class="label">Solution:</div>
+                <div class="text">Switched to Google Gemini API, which is free and works well.</div>
+            </div>
+            <div class="detail learning">
+                <div class="label">Key Takeaway:</div>
+                <div class="text">Evaluate API costs and accessibility before integration. Gemini provides a great free alternative.</div>
+            </div>
+        </div>
+
+        <div class="learning-item">
+            <h3>5. Gemini Model Selection</h3>
+            <div class="detail mistake">
+                <div class="label">What went wrong:</div>
+                <div class="text">Used outdated model name 'gemini-pro'.</div>
+            </div>
+            <div class="detail fix">
+                <div class="label">Solution:</div>
+                <div class="text">Updated to 'gemini-2.0-flash-exp'.</div>
+            </div>
+            <div class="detail learning">
+                <div class="label">Key Takeaway:</div>
+                <div class="text">Always verify the latest model names in API documentation.</div>
+            </div>
+        </div>
+
+        <div class="learning-item">
+            <h3>6. GitHub Token Permissions</h3>
+            <div class="detail mistake">
+                <div class="label">What went wrong:</div>
+                <div class="text">Used a fine-grained GitHub token with limited permissions.</div>
+            </div>
+            <div class="detail fix">
+                <div class="label">Solution:</div>
+                <div class="text">Generated a Classic Token with full permissions.</div>
+            </div>
+            <div class="detail learning">
+                <div class="label">Key Takeaway:</div>
+                <div class="text">For automation via APIs, use Classic Personal Access Tokens with proper scopes.</div>
+            </div>
+        </div>
+
+        <div class="learning-item">
+            <h3>7. Repository Initialization Conflict</h3>
+            <div class="detail mistake">
+                <div class="label">What went wrong:</div>
+                <div class="text">Used auto_init=True which caused file conflicts.</div>
+            </div>
+            <div class="detail fix">
+                <div class="label">Solution:</div>
+                <div class="text">Set auto_init=False and manually created files.</div>
+            </div>
+            <div class="detail learning">
+                <div class="label">Key Takeaway:</div>
+                <div class="text">Avoid auto_init=True when adding files later programmatically.</div>
+            </div>
+        </div>
+
+        <div class="learning-item">
+            <h3>8. Testing and Validation</h3>
+            <div class="detail mistake">
+                <div class="label">What went wrong:</div>
+                <div class="text">Faced 405 and 503 errors due to Flask not running during ngrok connection.</div>
+            </div>
+            <div class="detail fix">
+                <div class="label">Solution:</div>
+                <div class="text">Restarted both Flask and ngrok together.</div>
+            </div>
+            <div class="detail learning">
+                <div class="label">Key Takeaway:</div>
+                <div class="text">Always confirm both services are active together before testing.</div>
+            </div>
+        </div>
+
+        <div class="learning-item">
+            <h3>9. Understanding API Status Codes</h3>
+            <div class="detail mistake">
+                <div class="label">What went wrong:</div>
+                <div class="text">Misunderstood HTTP codes initially.</div>
+            </div>
+            <div class="detail fix">
+                <div class="label">Solution:</div>
+                <div class="text">Learned their meaning and used them for debugging.</div>
+            </div>
+            <div class="detail learning">
+                <div class="label">Key Takeaway:</div>
+                <div class="text">HTTP codes are your debugging guide. 405 means wrong method, 503 means server not running.</div>
+            </div>
+        </div>
+
+        <div class="learning-item">
+            <h3>10. GitHub Pages Activation</h3>
+            <div class="detail mistake">
+                <div class="label">What went wrong:</div>
+                <div class="text">GitHub Pages didn't auto-enable after repo creation.</div>
+            </div>
+            <div class="detail fix">
+                <div class="label">Solution:</div>
+                <div class="text">Manually enabled it in repo settings.</div>
+            </div>
+            <div class="detail learning">
+                <div class="label">Key Takeaway:</div>
+                <div class="text">Always verify GitHub Pages deployment manually after setup.</div>
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Security Best Practice</h3>
+            <p>Keep all API keys private and never commit them to GitHub. Use environment variables and .gitignore to protect sensitive information.</p>
+        </div>
+
+        <div class="highlight-box">
+            <h3>Final Note</h3>
+            <p>The test endpoint is for self-verification only. True success is proven by a working GitHub Pages site and successful repo creation.</p>
+        </div>
+
+        <footer>
+            <p>Every challenge was a learning opportunity. Happy coding!</p>
+        </footer>
+    </div>
+</body>
+</html>
