@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TDS Project 1 Learnings</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,301 +13,467 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background: #fef6f8;
-            padding: 40px 20px;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            color: #2d3748;
+            background-color: #f7fafc;
+            padding: 20px;
         }
 
         .container {
             max-width: 900px;
             margin: 0 auto;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            color: #5a5a5a;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            font-size: 1.1em;
-            color: #7a7a7a;
+            background: white;
+            padding: 60px 50px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .intro {
-            background: #fff;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            border-left: 4px solid #b8a4d4;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
         }
 
-        .learning-item {
-            background: white;
-            padding: 25px;
+        .intro h1 {
+            font-size: 2.2em;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+
+        .intro h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+            color: #4a5568;
+            margin-bottom: 25px;
+        }
+
+        .intro p {
+            font-size: 1.05em;
+            color: #4a5568;
+            font-weight: 300;
+        }
+
+        h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #2d3748;
+            margin-top: 45px;
             margin-bottom: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border-left: 4px solid #a8d4e8;
         }
 
-        .learning-item h3 {
-            color: #5a5a5a;
-            margin-bottom: 15px;
-            font-size: 1.3em;
-        }
-
-        .detail {
+        h4 {
+            font-size: 1.1em;
+            font-weight: 500;
+            color: #4a5568;
+            margin-top: 25px;
             margin-bottom: 12px;
-            padding-left: 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .problem-section {
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .problem-section:last-child {
+            border-bottom: none;
         }
 
         .label {
-            font-weight: 600;
-            margin-bottom: 5px;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .label-issue {
+            background-color: #fed7d7;
+            color: #c53030;
+        }
+
+        .label-solution {
+            background-color: #c6f6d5;
+            color: #276749;
+        }
+
+        .code-block {
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
             font-size: 0.9em;
+            color: #2d3748;
         }
 
-        .mistake .label {
-            color: #e8a4a4;
+        ul, ol {
+            margin: 15px 0 15px 25px;
         }
 
-        .fix .label {
-            color: #a4d4b4;
+        li {
+            margin: 8px 0;
+            color: #4a5568;
         }
 
-        .learning .label {
-            color: #a4c4e8;
+        strong {
+            color: #2d3748;
+            font-weight: 600;
         }
 
-        .text {
-            color: #666;
-            margin-left: 5px;
+        code {
+            background-color: #f7fafc;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: #2d3748;
         }
 
-        .highlight-box {
-            background: #fef9e6;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px 0;
-            border-left: 4px solid #f4d4a4;
-        }
-
-        .highlight-box h3 {
-            color: #7a7a5a;
-            margin-bottom: 10px;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 50px;
+        .checklist-section {
+            background-color: #f7fafc;
             padding: 30px;
-            color: #7a7a7a;
+            border-radius: 6px;
+            margin: 30px 0;
+        }
+
+        .checklist-section h4 {
+            margin-top: 20px;
+        }
+
+        .checklist-section h4:first-of-type {
+            margin-top: 0;
+        }
+
+        .tip-section {
+            background-color: #f7fafc;
+            padding: 25px;
+            border-radius: 6px;
+            margin: 30px 0;
+            border-left: 4px solid #4299e1;
+        }
+
+        .resources {
+            margin-top: 40px;
+        }
+
+        .resources a {
+            color: #4299e1;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.2s;
+        }
+
+        .resources a:hover {
+            border-bottom: 1px solid #4299e1;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            color: #718096;
+            font-weight: 300;
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
+            .container {
+                padding: 40px 25px;
             }
 
-            body {
-                padding: 20px 15px;
+            .intro h1 {
+                font-size: 1.8em;
+            }
+
+            .intro h2 {
+                font-size: 1.3em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>TDS Project 1 Learnings</h1>
-            <p class="subtitle">Building a GitHub Pages Automation Project</p>
-        </header>
-
         <div class="intro">
+            <h1>TDS Project 1 Learnings</h1>
+            <h2>Building a GitHub Pages Automation Project</h2>
             <p>Recently, I worked on automating GitHub Pages deployment and faced several challenges along the way. Here are the key lessons I learned that might help others on a similar journey.</p>
         </div>
 
-        <div class="learning-item">
-            <h3>1. Tool Choice & Environment Setup</h3>
-            <div class="detail mistake">
-                <div class="label">What went wrong:</div>
-                <div class="text">Initially tried using Replit, but the new interface had changed, making setup confusing.</div>
-            </div>
-            <div class="detail fix">
-                <div class="label">Solution:</div>
-                <div class="text">Switched to VS Code with a local environment for better control and debugging.</div>
-            </div>
-            <div class="detail learning">
-                <div class="label">Key Takeaway:</div>
-                <div class="text">Always adapt tools based on practicality. Running projects locally gives full access to logs, environment variables, and dependency control.</div>
-            </div>
+        <div class="problem-section">
+            <h3>Problem 1: New Replit Interface</h3>
+            <span class="label label-issue">Issue</span>
+            <p>Replit changed their UI and the "Create Repl" button was no longer visible. The new AI-powered interface was confusing to navigate.</p>
+            
+            <span class="label label-solution">Solution</span>
+            <p>I decided to use VS Code with local Python instead. I used ngrok to make the local server publicly accessible, which gave me more control without depending on Replit's interface.</p>
+            
+            <h4>Alternative approach</h4>
+            <p>You can also click the "+ Create App" button (which is the new name for Create Repl) or use the "General" tab with an AI prompt to auto-setup.</p>
         </div>
 
-        <div class="learning-item">
-            <h3>2. API Hosting</h3>
-            <div class="detail mistake">
-                <div class="label">What went wrong:</div>
-                <div class="text">Tried to test with localhost URLs, which aren't publicly accessible.</div>
-            </div>
-            <div class="detail fix">
-                <div class="label">Solution:</div>
-                <div class="text">Used ngrok to expose the local Flask server to a public HTTPS URL.</div>
-            </div>
-            <div class="detail learning">
-                <div class="label">Key Takeaway:</div>
-                <div class="text">Ngrok is essential for making local APIs publicly accessible. It bridges local development with external integrations.</div>
-            </div>
+        <div class="problem-section">
+            <h3>Problem 2: OpenAI API Key Not Free</h3>
+            <span class="label label-issue">Issue</span>
+            <p>OpenAI requires payment after the free credit expires (limited to 3 months). I encountered this error:</p>
+            <div class="code-block">{
+  "openai_key_valid": false,
+  "openai_error": "Invalid OpenAI key"
+}</div>
+            
+            <span class="label label-solution">Solution</span>
+            <p>I switched to Google Gemini API, which is completely free with generous limits (1,500 requests/day). Updated the code to use Gemini instead of OpenAI.</p>
+            
+            <h4>Code changes</h4>
+            <div class="code-block"># BEFORE (OpenAI)
+import openai
+openai.api_key = OPENAI_API_KEY
+response = openai.ChatCompletion.create(model="gpt-3.5-turbo", ...)
+
+# AFTER (Gemini)
+import google.generativeai as genai
+genai.configure(api_key=GEMINI_API_KEY)
+model = genai.GenerativeModel('gemini-2.0-flash-exp')
+response = model.generate_content(prompt)</div>
+
+            <h4>Package change</h4>
+            <div class="code-block">pip uninstall openai
+pip install google-generativeai</div>
         </div>
 
-        <div class="learning-item">
-            <h3>3. API Endpoint Testing</h3>
-            <div class="detail mistake">
-                <div class="label">What went wrong:</div>
-                <div class="text">Opened the API endpoint in browser and got "Method Not Allowed" error.</div>
-            </div>
-            <div class="detail fix">
-                <div class="label">Solution:</div>
-                <div class="text">Realized the endpoint only accepts POST requests, not GET.</div>
-            </div>
-            <div class="detail learning">
-                <div class="label">Key Takeaway:</div>
-                <div class="text">Always check the allowed HTTP methods for API endpoints. Browsers send GET requests by default.</div>
-            </div>
+        <div class="problem-section">
+            <h3>Problem 3: Gemini Model Name Outdated</h3>
+            <span class="label label-issue">Issue</span>
+            <div class="code-block">404 models/gemini-pro is not found for API version v1beta</div>
+            <p>The old model name <code>gemini-pro</code> was deprecated and the documentation was outdated.</p>
+            
+            <span class="label label-solution">Solution</span>
+            <p>Updated to newer model names. I tried these in order:</p>
+            <ol>
+                <li><code>gemini-1.5-flash</code> (didn't work)</li>
+                <li><code>gemini-1.5-pro</code> (didn't work)</li>
+                <li><code>gemini-2.0-flash-exp</code> (worked!)</li>
+            </ol>
+
+            <h4>Fix</h4>
+            <div class="code-block"># Update in TWO places in main.py:
+model = genai.GenerativeModel('gemini-2.0-flash-exp')</div>
         </div>
 
-        <div class="learning-item">
-            <h3>4. OpenAI API Key Issue</h3>
-            <div class="detail mistake">
-                <div class="label">What went wrong:</div>
-                <div class="text">Tried to use OpenAI API key, which required paid credits.</div>
-            </div>
-            <div class="detail fix">
-                <div class="label">Solution:</div>
-                <div class="text">Switched to Google Gemini API, which is free and works well.</div>
-            </div>
-            <div class="detail learning">
-                <div class="label">Key Takeaway:</div>
-                <div class="text">Evaluate API costs and accessibility before integration. Gemini provides a great free alternative.</div>
-            </div>
+        <div class="problem-section">
+            <h3>Problem 4: GitHub Token Insufficient Permissions</h3>
+            <span class="label label-issue">Issue</span>
+            <div class="code-block">403 Forbidden
+"Resource not accessible by personal access token"</div>
+            <p>The token was created without proper permissions, so I couldn't create repositories.</p>
+            
+            <span class="label label-solution">Solution</span>
+            <p>Created a new GitHub token with all required scopes:</p>
+            <ul>
+                <li><code>repo</code> (full control - most important)</li>
+                <li><code>workflow</code></li>
+                <li><code>admin:repo_hook</code></li>
+                <li><code>delete_repo</code></li>
+            </ul>
+
+            <h4>Steps to create token</h4>
+            <ol>
+                <li>Go to https://github.com/settings/tokens</li>
+                <li>Generate new token (classic)</li>
+                <li>Check all sub-boxes under "repo"</li>
+                <li>Copy token immediately (starts with <code>ghp_</code>)</li>
+                <li>Update in <code>main.py</code></li>
+            </ol>
         </div>
 
-        <div class="learning-item">
-            <h3>5. Gemini Model Selection</h3>
-            <div class="detail mistake">
-                <div class="label">What went wrong:</div>
-                <div class="text">Used outdated model name 'gemini-pro'.</div>
-            </div>
-            <div class="detail fix">
-                <div class="label">Solution:</div>
-                <div class="text">Updated to 'gemini-2.0-flash-exp'.</div>
-            </div>
-            <div class="detail learning">
-                <div class="label">Key Takeaway:</div>
-                <div class="text">Always verify the latest model names in API documentation.</div>
-            </div>
+        <div class="problem-section">
+            <h3>Problem 5: Repository Creation Conflict</h3>
+            <span class="label label-issue">Issue</span>
+            <div class="code-block">422 Invalid request. "sha" wasn't supplied.</div>
+            <p>Using <code>auto_init=True</code> creates a default README, but then the code tries to create README again, causing a conflict.</p>
+            
+            <span class="label label-solution">Solution</span>
+            <p>Changed <code>auto_init=False</code> and manually created all files in the correct order with <code>branch="main"</code> parameter.</p>
+
+            <h4>Code fix</h4>
+            <div class="code-block"># BEFORE
+repo = user.create_repo(repo_name, auto_init=True)
+
+# AFTER
+repo = user.create_repo(repo_name, auto_init=False)
+repo.create_file("LICENSE", "Add LICENSE", content, branch="main")
+repo.create_file("README.md", "Add README", content, branch="main")
+repo.create_file("index.html", "Add website", content, branch="main")</div>
         </div>
 
-        <div class="learning-item">
-            <h3>6. GitHub Token Permissions</h3>
-            <div class="detail mistake">
-                <div class="label">What went wrong:</div>
-                <div class="text">Used a fine-grained GitHub token with limited permissions.</div>
-            </div>
-            <div class="detail fix">
-                <div class="label">Solution:</div>
-                <div class="text">Generated a Classic Token with full permissions.</div>
-            </div>
-            <div class="detail learning">
-                <div class="label">Key Takeaway:</div>
-                <div class="text">For automation via APIs, use Classic Personal Access Tokens with proper scopes.</div>
-            </div>
+        <div class="problem-section">
+            <h3>Problem 6: Ngrok 503 Service Unavailable</h3>
+            <span class="label label-issue">Issue</span>
+            <div class="code-block">503 ERR_NGROK_3004
+The server returned an invalid or incomplete HTTP response</div>
+            <p>The Flask app crashed or stopped, and ngrok couldn't connect to it.</p>
+            
+            <span class="label label-solution">Solution</span>
+            <p>Always check the Flask terminal first for Python errors. Restart Flask with <code>Ctrl+C</code> then <code>python main.py</code>. Verify that ngrok is pointing to the correct port (5000) and keep both terminals running.</p>
+
+            <h4>Verification steps</h4>
+            <ol>
+                <li>Flask shows: <code>Running on http://0.0.0.0:5000</code></li>
+                <li>Ngrok shows: <code>Forwarding https://...ngrok.io -> localhost:5000</code></li>
+                <li>Test by visiting the ngrok URL in browser</li>
+            </ol>
         </div>
 
-        <div class="learning-item">
-            <h3>7. Repository Initialization Conflict</h3>
-            <div class="detail mistake">
-                <div class="label">What went wrong:</div>
-                <div class="text">Used auto_init=True which caused file conflicts.</div>
-            </div>
-            <div class="detail fix">
-                <div class="label">Solution:</div>
-                <div class="text">Set auto_init=False and manually created files.</div>
-            </div>
-            <div class="detail learning">
-                <div class="label">Key Takeaway:</div>
-                <div class="text">Avoid auto_init=True when adding files later programmatically.</div>
-            </div>
+        <div class="problem-section">
+            <h3>Problem 7: Test Script Returns 405</h3>
+            <span class="label label-issue">Issue</span>
+            <div class="code-block">Status: 405
+JSONDecodeError: Expecting value</div>
+            <p>Used <code>localhost</code> instead of ngrok URL in the test script, and was missing the <code>/api-endpoint</code> path.</p>
+            
+            <span class="label label-solution">Solution</span>
+            <p>Updated <code>test_api.py</code> with the correct ngrok URL:</p>
+            <div class="code-block"># WRONG
+API_URL = "http://localhost:5000/api-endpoint"
+
+# CORRECT
+API_URL = "https://your-ngrok-url.ngrok-free.dev/api-endpoint"</div>
         </div>
 
-        <div class="learning-item">
-            <h3>8. Testing and Validation</h3>
-            <div class="detail mistake">
-                <div class="label">What went wrong:</div>
-                <div class="text">Faced 405 and 503 errors due to Flask not running during ngrok connection.</div>
-            </div>
-            <div class="detail fix">
-                <div class="label">Solution:</div>
-                <div class="text">Restarted both Flask and ngrok together.</div>
-            </div>
-            <div class="detail learning">
-                <div class="label">Key Takeaway:</div>
-                <div class="text">Always confirm both services are active together before testing.</div>
-            </div>
+        <div class="problem-section">
+            <h3>Problem 8: Browser Shows "Method Not Allowed"</h3>
+            <span class="label label-issue">Issue</span>
+            <p>Visiting <code>/api-endpoint</code> in browser showed "Method Not Allowed" and I thought the endpoint was broken.</p>
+            
+            <span class="label label-solution">Solution</span>
+            <p><strong>This is actually correct behavior!</strong> The <code>/api-endpoint</code> only accepts POST requests, while browsers send GET requests. This proves the endpoint is working properly.</p>
+
+            <h4>Verification</h4>
+            <ul>
+                <li>Root URL (<code>/</code>) works in browser</li>
+                <li>Test URL (<code>/test</code>) shows config status</li>
+                <li>API endpoint rejects browser requests (correct)</li>
+                <li>POST requests via script work (perfect)</li>
+            </ul>
         </div>
 
-        <div class="learning-item">
-            <h3>9. Understanding API Status Codes</h3>
-            <div class="detail mistake">
-                <div class="label">What went wrong:</div>
-                <div class="text">Misunderstood HTTP codes initially.</div>
-            </div>
-            <div class="detail fix">
-                <div class="label">Solution:</div>
-                <div class="text">Learned their meaning and used them for debugging.</div>
-            </div>
-            <div class="detail learning">
-                <div class="label">Key Takeaway:</div>
-                <div class="text">HTTP codes are your debugging guide. 405 means wrong method, 503 means server not running.</div>
-            </div>
+        <div class="checklist-section">
+            <h3>Complete Setup Checklist</h3>
+            
+            <h4>Prerequisites</h4>
+            <ul>
+                <li>Python 3.x installed</li>
+                <li>GitHub account created</li>
+                <li>GitHub Personal Access Token with repo permissions</li>
+                <li>Google Gemini API key (free)</li>
+                <li>Ngrok account and installed</li>
+            </ul>
+
+            <h4>Project Files</h4>
+            <ul>
+                <li><code>main.py</code> - Flask API server</li>
+                <li><code>test_api.py</code> - Testing script</li>
+                <li><code>requirements.txt</code> - Package dependencies</li>
+            </ul>
+
+            <h4>Configuration in main.py</h4>
+            <ul>
+                <li>YOUR_SECRET - Custom password</li>
+                <li>GITHUB_TOKEN - Token with full repo permissions</li>
+                <li>GEMINI_API_KEY - Google AI Studio key</li>
+                <li>GITHUB_USERNAME - Your GitHub username</li>
+            </ul>
+
+            <h4>Running the project</h4>
+            <ul>
+                <li>Terminal 1: <code>python main.py</code> (Flask)</li>
+                <li>Terminal 2: <code>ngrok http 5000</code> (Public URL)</li>
+                <li>Keep both running during evaluation</li>
+            </ul>
+
+            <h4>Testing</h4>
+            <ul>
+                <li>Visit ngrok URL <code>/test</code> endpoint</li>
+                <li>Run <code>python test_api.py</code></li>
+                <li>Check GitHub for new repo</li>
+                <li>Check Pages deployment (wait 2-5 min)</li>
+            </ul>
         </div>
 
-        <div class="learning-item">
-            <h3>10. GitHub Pages Activation</h3>
-            <div class="detail mistake">
-                <div class="label">What went wrong:</div>
-                <div class="text">GitHub Pages didn't auto-enable after repo creation.</div>
-            </div>
-            <div class="detail fix">
-                <div class="label">Solution:</div>
-                <div class="text">Manually enabled it in repo settings.</div>
-            </div>
-            <div class="detail learning">
-                <div class="label">Key Takeaway:</div>
-                <div class="text">Always verify GitHub Pages deployment manually after setup.</div>
-            </div>
+        <h3>Key Learnings</h3>
+        
+        <p><strong>Use Gemini instead of OpenAI:</strong> It's completely free with no credit card needed and has generous limits (1,500 requests/day). The latest model is <code>gemini-2.0-flash-exp</code>.</p>
+
+        <p><strong>GitHub tokens need full permissions:</strong> Always check the entire <code>repo</code> scope and include <code>workflow</code> and <code>admin:repo_hook</code>. Test the token immediately after creation.</p>
+
+        <p><strong>Use auto_init=False:</strong> This avoids file creation conflicts. Create files manually in order and always specify <code>branch="main"</code>.</p>
+
+        <p><strong>Local development is better than Replit:</strong> You get more control over the environment without unexpected UI changes. Use ngrok for public access and keep both terminals running.</p>
+
+        <p><strong>"Method Not Allowed" is normal:</strong> The API endpoint should reject browser GET requests as a security feature. Always test with POST requests.</p>
+
+        <div class="tip-section">
+            <h3>Pro Tips</h3>
+            <ol>
+                <li>Keep Flask and ngrok running during evaluation</li>
+                <li>Test the <code>/test</code> endpoint before submission</li>
+                <li>Create a test repo before submitting</li>
+                <li>Enable GitHub Pages manually if auto-enable fails</li>
+                <li>Monitor Flask terminal during evaluation</li>
+                <li>Save your ngrok URL (it changes if you restart)</li>
+                <li>Use UptimeRobot to keep service alive (optional)</li>
+            </ol>
         </div>
 
-        <div class="highlight-box">
-            <h3>Security Best Practice</h3>
-            <p>Keep all API keys private and never commit them to GitHub. Use environment variables and .gitignore to protect sensitive information.</p>
+        <h3>Quick Command Reference</h3>
+        <div class="code-block"># Install packages
+pip install flask flask-cors requests PyGithub google-generativeai
+
+# Run Flask
+python main.py
+
+# Run ngrok (separate terminal)
+ngrok http 5000
+
+# Test API
+python test_api.py
+
+# Check if Python/packages installed
+python --version
+pip list | grep -i flask</div>
+
+        <div class="resources">
+            <h3>Helpful Resources</h3>
+            <ul>
+                <li><a href="https://github.com/settings/tokens" target="_blank">GitHub Token Settings</a></li>
+                <li><a href="https://aistudio.google.com/app/apikey" target="_blank">Gemini API Key</a></li>
+                <li><a href="https://ngrok.com/download" target="_blank">Ngrok Download</a></li>
+                <li>GitHub Pages: Repo Settings → Pages → Deploy from branch (main)</li>
+            </ul>
         </div>
 
-        <div class="highlight-box">
-            <h3>Final Note</h3>
-            <p>The test endpoint is for self-verification only. True success is proven by a working GitHub Pages site and successful repo creation.</p>
-        </div>
+        <h3>Final Verification Before Submission</h3>
+        <ol>
+            <li>Flask running without errors</li>
+            <li>Ngrok showing public URL</li>
+            <li><code>/test</code> endpoint returns all true</li>
+            <li>Test repo created successfully</li>
+            <li>GitHub Pages enabled and website visible</li>
+            <li>Ngrok URL copied for submission</li>
+            <li>Secret password saved</li>
+            <li>Computer won't sleep during evaluation</li>
+        </ol>
 
-        <footer>
-            <p>Every challenge was a learning opportunity. Happy coding!</p>
-        </footer>
+        <div class="footer">
+            <p>This guide covers all the real problems I faced during setup and the solutions that worked.</p>
+            <p>Contact : suhanikolhatkar2005@gmail.com</p>
+            <p>&copy; 2025 Suhani Kolhatkar </p>
+        </div>
     </div>
 </body>
 </html>
